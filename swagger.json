@@ -1,0 +1,528 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample Todo list on Laravel server.",
+    "version": "1.0.0",
+    "title": "Project - RESTful API Todo list",
+    "contact": {
+      "email": "nueha.pimkanok@gmail.com"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "task"
+        ],
+        "summary": "View all task in list",
+        "description": "",
+        "operationId": "viewAll",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "List of all tasks"
+                },
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "Task Two"
+                      },
+                      "detail": {
+                        "type": "string",
+                        "example": "Detail Two"
+                      },
+                      "status": {
+                        "type": "string",
+                        "example": "pending"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "example": "2018-10-07 08:36:49"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "example": "2018-10-07 08:37:52"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "tags": [
+          "task"
+        ],
+        "summary": "View single task",
+        "description": "",
+        "operationId": "view",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that need to be deleted",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task information"
+                },
+                "tasks": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Task Two"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Detail Two"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "pending"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:36:49"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:37:52"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add": {
+      "post": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Add a new task to todo list",
+        "description": "",
+        "operationId": "add",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Task object that needs to be added to todo list",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "title's task"
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "detail's task"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task information"
+                },
+                "tasks": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Task Two"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Detail Two"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "pending"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:36:49"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:37:52"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Bad request - Error during creating"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}/edit": {
+      "put": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Edit existing task",
+        "description": "",
+        "operationId": "edit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that need to be edit",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Task object that needs to be edit to todo list",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "title's task"
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "detail's task"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task updated"
+                },
+                "tasks": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Task Two"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Detail Two"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "pending"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:36:49"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:37:52"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}/status": {
+      "patch": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Set the task status",
+        "description": "",
+        "operationId": "status",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that need to be edit",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task updated"
+                },
+                "tasks": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Task Two"
+                    },
+                    "detail": {
+                      "type": "string",
+                      "example": "Detail Two"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "done"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:36:49"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2018-10-07 08:37:52"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}/delete": {
+      "delete": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Delete task",
+        "description": "",
+        "operationId": "delete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id that need to be deleted",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task deleted"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "example": "Task not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "done"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "created's time of task"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "updated's time of task"
+        }
+      },
+      "xml": {
+        "name": "Tasks"
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        },
+        "tasks": {
+          "$ref": "#/definitions/Task"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Laravel",
+    "url": "https://laravel.com/"
+  }
+}
