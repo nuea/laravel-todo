@@ -14,4 +14,6 @@ WORKDIR /app
 
 RUN composer install
 
+RUN touch /app/database/database.sqlite
+
 RUN php artisan migrate
