@@ -14,6 +14,15 @@
  - [Controller](https://github.com/nuea/laravel-todo/blob/master/app/Http/Controllers/TaskController.php)
  - [Database Migration](https://github.com/nuea/laravel-todo/blob/master/database/migrations/2018_10_07_004514_create_todo_table.php)
 
+## How to test in Laravel (in local)
+ 1. install composer
+ 2. `cd laravel-todo`
+ 3. `composer install`
+ 4. Run command test `vendor/bin/phpunit.bat` in Windows or `vendor/bin/phpunit` in OS
+ 5. Result of test :
+ ![Result](result-test.jpg)
+
+
 ## Test
  - [View all task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/viewAllTest.php)
  - [View single task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/viewSingleTest.php) 
@@ -22,10 +31,3 @@
  - [Set status task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/setStatusTest.php)
  - [Delete task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/deleteTest.php)
  
-## How to test in Laravel (in local)
-### If you want to test
- 1. install composer
- 2. `cd laravel-todo`
- 3. `composer install`
- 4. `vendor/bin/phpunit.bat`
-
