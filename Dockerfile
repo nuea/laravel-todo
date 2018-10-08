@@ -17,5 +17,3 @@ RUN composer install
 RUN touch /app/database/database.sqlite
 
 RUN php artisan migrate
-
-RUN /app/vender/bin/phpunit
