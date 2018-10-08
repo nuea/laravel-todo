@@ -27,5 +27,5 @@
  1. install composer
  2. `cd laravel-todo`
  3. `composer install`
- 4. `vender/bin/phpunit`
+ 4. `vendor/bin/phpunit.bat`
 
