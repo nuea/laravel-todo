@@ -15,9 +15,17 @@
  - [Database Migration](https://github.com/nuea/laravel-todo/blob/master/database/migrations/2018_10_07_004514_create_todo_table.php)
 
 ## Test
- - [View all task](/)
- - [View single task](/) 
- - [Add a new task](/)
- - [Edit task](/)
- - [Set status task](/)
- - [Delete task](/)
+ - [View all task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/viewAllTest.php)
+ - [View single task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/viewSingleTest.php) 
+ - [Add a new task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/addTest.php)
+ - [Edit task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/editTest.php)
+ - [Set status task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/setStatusTest.php)
+ - [Delete task](https://github.com/nuea/laravel-todo/blob/master/tests/Feature/deleteTest.php)
+ 
+## How to test in Laravel (in local)
+### If you want to test
+ 1. install composer
+ 2. `cd laravel-todo`
+ 3. `composer install`
+ 4. `vender/bin/phpunit`
+
