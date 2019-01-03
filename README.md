@@ -8,8 +8,8 @@
 
 ## Document Swagger
 running on - [http://localhost:8000/api/document](http://localhost:8000/api/document)
-- File swagger [.json](https://github.com/nuea/laravel-todo/blob/master/swagger.json),
-[.ymal](https://github.com/nuea/laravel-todo/blob/master/swagger.yaml) 
+- File swagger [.json](https://github.com/nuea/laravel-todo/blob/master/storage/api-docs/swagger.json),
+[.ymal](https://github.com/nuea/laravel-todo/blob/master/storage/api-docs/swagger.yaml) 
 
 
 ## Resource file
